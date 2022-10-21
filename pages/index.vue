@@ -182,9 +182,9 @@ export default {
             phone: this.phone,
           }
         );
-        console.log(result);
+        this.$swal('Excelente', 'Se ha enviado tus datos correctamente', 'success')
       } catch (error) {
-        console.error("ohhh", error);
+        this.$swal('Algo ha ocurrido', 'Por favor intenta mas tarde', 'error')
       }
     },
   },

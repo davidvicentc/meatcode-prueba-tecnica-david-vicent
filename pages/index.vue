@@ -2,7 +2,7 @@
   <v-container>
     <TitleSecondary :textTitle="'Nuestros artículos'"></TitleSecondary>
     <v-row>
-      <v-col cols="3">
+      <v-col cols="12" md="4" justify="center" align="center">
         <div class="sidebar">
           <LinkActive
             v-for="link in links"
@@ -13,7 +13,7 @@
           ></LinkActive>
         </div>
       </v-col>
-      <v-col cols="9">
+      <v-col cols="12" md="8">
         <v-row>
           <div v-if="products.length == 0">
             <h3>Sin productos que mostrar.</h3>
@@ -192,6 +192,8 @@ export default {
 </script>
 
 <style>
+
+
 .label-personalized {
   margin-bottom: 10px;
 }
@@ -216,8 +218,9 @@ export default {
 .sidebar {
   padding-top: 24px;
   padding-left: 23px;
+  padding-right: 23px;
   padding-bottom: 118px;
-  width: 274px;
+  width: 319px;
   background: #ffffff;
   box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.07);
   border-radius: 10px;
@@ -235,4 +238,14 @@ export default {
   font-size: 15px !important;
   line-height: 28px;
 }
+@media (max-width: 1264px) {
+    .sidebar {
+      width: 280px;
+    }
+  }
+  @media (max-width: 960px) {
+    .sidebar {
+      width: 100%;
+    }
+  }
 </style>

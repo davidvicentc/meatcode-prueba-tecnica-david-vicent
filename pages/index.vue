@@ -182,9 +182,13 @@ export default {
             phone: this.phone,
           }
         );
-        this.$swal('Excelente', 'Se ha enviado tus datos correctamente', 'success')
+        this.$swal(
+          "Excelente",
+          "Se ha enviado tus datos correctamente",
+          "success"
+        );
       } catch (error) {
-        this.$swal('Algo ha ocurrido', 'Por favor intenta mas tarde', 'error')
+        this.$swal("Algo ha ocurrido", "Por favor intenta mas tarde", "error");
       }
     },
   },
@@ -192,8 +196,6 @@ export default {
 </script>
 
 <style>
-
-
 .label-personalized {
   margin-bottom: 10px;
 }
@@ -239,13 +241,13 @@ export default {
   line-height: 28px;
 }
 @media (max-width: 1264px) {
-    .sidebar {
-      width: 280px;
-    }
+  .sidebar {
+    width: 280px;
   }
-  @media (max-width: 960px) {
-    .sidebar {
-      width: 100%;
-    }
+}
+@media (max-width: 960px) {
+  .sidebar {
+    width: 100%;
   }
+}
 </style>

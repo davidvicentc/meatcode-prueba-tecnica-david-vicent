@@ -1,7 +1,7 @@
 <template>
   <div class="link" @click="getBtnActive(data)">
     <p :class="btnActive.id == data.id ? 'active' : ''">{{ data.text }}</p>
-    <img v-if="btnActive.id == data.id" src="/arrow_active.svg" alt="">
+    <img v-if="btnActive.id == data.id" src="/arrow_active.svg" alt="" />
   </div>
 </template>
 

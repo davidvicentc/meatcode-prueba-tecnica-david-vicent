@@ -14,7 +14,10 @@
         </div>
       </v-col>
       <v-col cols="12" md="8">
-        <v-row>
+        <v-row v-if="loading">
+          <Loader />
+        </v-row>
+        <v-row v-else>
           <div v-if="products.length == 0">
             <h3>Sin productos que mostrar.</h3>
           </div>
@@ -91,6 +94,7 @@
 import CardProduct from "@/components/CardProduct.vue";
 import LinkActive from "@/components/LinkActive.vue";
 import TitleSecondary from "@/components/TitleSecondary.vue";
+import Loader from "../components/Loader.vue";
 
 export default {
   name: "IndexPage",
@@ -98,6 +102,7 @@ export default {
     CardProduct,
     LinkActive,
     TitleSecondary,
+    Loader,
   },
   async asyncData({ $axios }) {
     try {
@@ -115,6 +120,7 @@ export default {
   data() {
     return {
       validData: false,
+      loading: false,
       name: "",
       lastname: "",
       email: "",
@@ -156,8 +162,10 @@ export default {
   methods: {
     async btnActiveFunction(btnActiveId) {
       this.btnActive = btnActiveId;
+      this.loading = true;
       const result = await this.$axios.$get(btnActiveId.endpoint);
       this.products = result;
+      this.loading = false;
     },
 
     async sendData() {
@@ -171,7 +179,6 @@ export default {
       ) {
         return;
       }
-      console.log(this.phone);
       try {
         const result = await this.$axios.$post(
           "https://5eed24da4cbc340016330f0d.mockapi.io/api/newsletter",
